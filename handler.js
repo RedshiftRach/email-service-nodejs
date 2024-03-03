@@ -26,11 +26,11 @@ subject = subject || 'Hello from Lambda';
   Message: {
     Body: {
       Text: {
-        Data: 'This is a message generated automatically from a Lambda function.',
+        Data: message,
       },
     },
     Subject: {
-      Data: 'Hello from Lambda',
+      Data: subject,
     },
   },
   Source: [email], // This is the email listed in sender. Set it to your email for this practice
