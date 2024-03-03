@@ -31,8 +31,8 @@ provider:
      statements:
        - Effect: "Allow"
          Action:
-           - "ses.sendEmail"
-           - "ses.sendRawEmail"
+           - "ses:sendEmail"
+           - "ses:sendRawEmail"
          Resource: "*"
 #            Fn::Join:
 #              - ""
