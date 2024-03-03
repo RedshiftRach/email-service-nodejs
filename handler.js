@@ -33,7 +33,7 @@ subject = subject || 'Hello from Lambda';
       Data: subject,
     },
   },
-  Source: [email], // This is the email listed in sender. Set it to your email for this practice
+  Source: email, // This is the email listed in sender. Set it to your email for this practice
 };
 await ses.sendEmail(params).promise();
 // in the object that is `return`ed, replace the `body.message` property with `Email sent to ${queryParams.email}`
