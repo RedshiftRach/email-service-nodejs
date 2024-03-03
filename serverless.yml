@@ -32,7 +32,7 @@ provider:
        - Effect: "Allow"
          Action:
            - "ses.sendEmail"
-           - "ses.SendRawEmail"
+           - "ses.sendRawEmail"
          Resource: "*"
 #            Fn::Join:
 #              - ""
