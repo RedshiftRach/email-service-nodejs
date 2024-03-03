@@ -26,7 +26,7 @@ provider:
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
- iam:
+  iam:
    role:
      statements:
        - Effect: "Allow"
