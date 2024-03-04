@@ -1,12 +1,15 @@
 // top of file
-const AWS = require('aws-sdk');
-const ses = new AWS.SES({ region: 'us-east-1' });
+import { SES } from 'aws-sdk';
+const ses = new SES({ region: 'us-east-1' });
 
-module.exports.sendEmail = async (event) => {
+export async function sendEmail(event) {
   // inside the `exports.handler.sendHello` function, before the `return` statement
   const queryParams = event.queryStringParameters || {};
   // select from the query parameters
 let { email, message, subject } = queryParams;
+
+message = message || 'This is a message generated automatically from a Lambda function.';
+subject = subject || 'Hello from Lambda';
 
 if (!email) {
   return {
@@ -16,9 +19,6 @@ if (!email) {
     }),
   };
 }
-message = message || 'This is a message generated automatically from a Lambda function.';
-subject = subject || 'Hello from Lambda';
-
   const params = {
   Destination: {
     ToAddresses: [email], // This should be your email address
@@ -51,4 +51,4 @@ return {
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
   // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
-};
+}
