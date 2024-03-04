@@ -1,8 +1,8 @@
 // top of file
-import { SES } from 'aws-sdk';
-const ses = new SES({ region: 'us-east-1' });
+const AWS = require('aws-sdk');
+const ses = new AWS.SES({ region: 'us-east-1' });
 
-export async function sendEmail(event) {
+module.exports.sendEmail = async (event) => {
   // inside the `exports.handler.sendHello` function, before the `return` statement
   const queryParams = event.queryStringParameters || {};
   // select from the query parameters
@@ -51,4 +51,4 @@ return {
 
   // Use this code if you don't use the http event with the LAMBDA-PROXY integration
   // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
-}
+};
